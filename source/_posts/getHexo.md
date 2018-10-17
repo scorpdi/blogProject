@@ -1,7 +1,8 @@
 ---
 title: 使用Hexo+github搭建个人博客
 date: 2017-06-27 15:34:45
-tags:
+tags: hexo
+categories: hexo
 ---
 
 [Hexo](https://hexo.io/)!搭建本地博客[(doc)](https://hexo.io/docs/) 。
