@@ -90,6 +90,32 @@ gitlab_rails['db_username'] = 'name'
 gitlab_rails['db_password'] = '**********'
 
 ```
+## gitlab 关闭自带的nginx服务配置
+
+```bash
+
+```
+## 邮件发送配置
+```bash
+
+gitlab_rails['smtp_enable'] = true
+gitlab_rails['smtp_address'] = "smtp.qq.com"
+gitlab_rails['smtp_port'] = 465
+gitlab_rails['smtp_user_name'] = "1065615359@qq.com"
+gitlab_rails['smtp_password'] = "********" # qq邮箱smtp生成密码，不是登录密码
+gitlab_rails['smtp_domain'] = "smtp.qq.com"
+gitlab_rails['smtp_authentication'] = "login"
+gitlab_rails['smtp_enable_starttls_auto'] = true
+gitlab_rails['smtp_tls'] = true
+gitlab_rails['gitlab_email_from'] = "1065615359@qq.com"
+gitlab_rails['gitlab_email_reply_to'] = '1065615359@qq.com'
+gitlab_rails['smtp_openssl_verify_mode'] = 'none'
+
+```
+
+
+
+
 
 ## 汉化
 
@@ -107,7 +133,7 @@ patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 < 10.0.2-zh.diff   #不�
 
 ```
 
-## 备份
+## 备份&还原
 ```bash
 # 设置配置文件
 vim /etc/gitlab/gitlab.rb
@@ -127,6 +153,10 @@ gitlab-ctl reconfigure
 gitlab-ctl restart
 
 gitlab-rake gitlab:backup:create
+
+# 还原 吧备份文件cp到设置的备份目录下
+gitlab-rake gitlab:backup:restore BACKUP=1528446365_2018_06_08_10.8.4
+# 恢复命令：gitlab-rake gitlab:backup:restore BACKUP=备份文件时间戳，恢复的时候如果版本不一致，可能报错
 
 ```
 
