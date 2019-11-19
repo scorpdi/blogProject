@@ -228,7 +228,3 @@ user.save!
 # 如果内存比较小的话建议修改配置文件
 unicorn['worker_processes'] = 1  #默认为2,1不能在线创建文件或修改
 ```
-
-### dddd
-### dddd
-### dddd
